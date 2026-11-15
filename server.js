@@ -23,7 +23,17 @@ fs.mkdirSync(AUTH_DIR, { recursive: true })
 const logger = pino({ level: LOG_LEVEL })
 const app = express()
 app.use(express.json())
-app.use(express.static(path.join(__dirname, 'public')))
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
+
+app.get('/app.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'app.js'))
+})
+
+app.get('/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'styles.css'))
+})
 
 let sock = null
 let connectionState = 'disconnected'
@@ -226,8 +236,11 @@ app.post('/api/disconnect', async (req, res) => {
   }
 })
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+app.use((req, res, next) => {
+  if (req.method === 'GET' && !req.path.startsWith('/api/')) {
+    return res.sendFile(path.join(__dirname, 'index.html'))
+  }
+  next()
 })
 
 app.listen(PORT, () => {
