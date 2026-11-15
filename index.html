@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>iMarket4U WA</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="card hero">
+      <div class="brand"><span class="dot"></span><span>iMarket4U</span> WA</div>
+      <h1>WhatsApp Automation</h1>
+      <p class="muted">Connect your WhatsApp with a pairing code. No QR scan required.</p>
+    </section>
+
+    <section class="card" id="connectCard">
+      <h2>Connect WhatsApp</h2>
+      <label for="phone">WhatsApp number</label>
+      <input id="phone" inputmode="numeric" autocomplete="tel" placeholder="263771234567">
+      <p class="hint">Use country code and numbers only. Do not use +, spaces or dashes.</p>
+      <button id="pairBtn">Generate Pairing Code</button>
+
+      <div id="codeBox" class="codebox hidden">
+        <div class="label">Pairing code</div>
+        <div id="pairCode" class="code">--------</div>
+        <p>On your phone: WhatsApp → Linked Devices → Link with phone number, then enter this code.</p>
+      </div>
+
+      <div id="message" class="message"></div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <div>
+          <h2>Dashboard</h2>
+          <p class="muted">Current connection and automation status</p>
+        </div>
+        <span id="statusBadge" class="badge">DISCONNECTED</span>
+      </div>
+
+      <div class="grid">
+        <div class="stat"><span>WhatsApp</span><strong id="number">—</strong></div>
+        <div class="stat"><span>Status automation</span><strong>Coming next</strong></div>
+        <div class="stat"><span>Anti-link</span><strong>Ready</strong></div>
+        <div class="stat"><span>Auto-kick</span><strong>Ready</strong></div>
+      </div>
+
+      <h3>Recent activity</h3>
+      <div id="activity" class="activity"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "imarket4u-wa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "iMarket4U WhatsApp automation dashboard and Baileys service",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "7.0.0-rc14",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pino": "^10.1.0"
+  }
+}
